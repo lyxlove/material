@@ -64,7 +64,7 @@ class GoodsController extends Controller
 
     public function showTree()
     {
-        
+        return;
     }
 
     private function createNext($list, $id)
