@@ -62,6 +62,7 @@ class GoodsController extends Controller
         return redirect('goods/index');
     }
 
+    
     public function showTree()
     {
         return;
