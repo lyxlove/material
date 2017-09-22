@@ -1,0 +1,36 @@
+body {
+  background-color: #42b0df;
+}
+
+ul {
+  list-style: none;
+}
+
+.bar-menu > li {
+  float: left;
+  margin-left: 30px;
+}
+
+.head-center {
+  height: 40px;
+  background-color: rgb(223, 231, 238);
+  width: 980px;
+  margin: 0 auto;
+}
+
+.bar-menu {
+  list-style: none;
+  display: inline-block;
+  float: right;
+}
+
+.item-content
+{
+  padding: 0;
+  display: none;
+}
+
+.bar-item:hover .item-content
+{
+  display: block;
+}

@@ -19,10 +19,10 @@
 
         <input type="hidden" name="GoodsTypeId" value="{{$GoodsTypeId}}">
 
-        分类名称<input type="text" name="GoodsType" value="{{isset($GoodsType) ? $GoodsType : 'Default'}}">
-
+      <!--  分类名称<input type="text" name="GoodsType" value="{{isset($GoodsType) ? $GoodsType : 'Default'}}">
+-->
         物品名称<input type="text" name="GoodsName" value="{{ $GoodsName or 'Default'}}">
-        
+
         <input type="submit" name="" value="保存">
     </form>
 </body>

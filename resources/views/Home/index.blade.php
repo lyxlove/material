@@ -1,18 +1,24 @@
 <html>
+
 <head>
-    <style type="text/css">
-    </style>
-
-    <script>
-
-    </script>
+  <link rel="stylesheet" href="{{url('/css/main.css')}}">
 </head>
-<body>
-<form action="{{url('home/gold')}}" method="post">
-    {!! csrf_field() !!}
-    金币价格(/100RMB):<input  id="gold" name="gold" required="required" type="text"  />
 
-    <button>提交</button>
-</form>
+<body>
+  <div class="head-center">
+      <ul class="bar-menu">
+        <li class="bar-item"><a href="#">01</a>
+        <ul class="item-content">
+          <li><a href="#">a</a></li>
+          <li><a href="#">b</a></li>
+        </ul>
+        </li>
+        <li><a href="#">02</a></li>
+        <li><a href="#">03</a></li>
+        <li><a href="#">04</a></li>
+        <li><a href="#">05</a></li>
+      </ul>
+  </div>
 </body>
+
 </html>

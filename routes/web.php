@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Route::get('home/index', 'HomeController@index');
 
-Route::post('home/gold', 'HomeController@gold');
+Route::get('home/gold', 'HomeController@gold');
 
 
 
@@ -29,3 +29,6 @@ Route::post('goods/savetype', 'GoodsController@saveType');
 Route::post('goods/getlist', 'GoodsController@getList');
 Route::post('goods/saveItem', 'GoodsController@saveItem');
 Route::get('goods/addItem/{pid}', 'GoodsController@addItem');
+
+
+Route::get('goods/GetGoodsList/{typeId}', 'GoodsController@GetGoodsList');

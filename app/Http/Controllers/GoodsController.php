@@ -23,6 +23,7 @@ class GoodsController extends Controller
         return view('Goods/index')->with("list", $str);
     }
 
+    //获取分类列表
     public function getList()
     {
         $list = Goods::get();
@@ -37,37 +38,67 @@ class GoodsController extends Controller
         return $str;
     }
 
-
-
+    /**
+     * 添加分类
+     * @param [int] $pid [分类父节点id]
+     */
     public function addType($pid)
     {
         return view('Goods/addType')->with("GPId", $pid);
     }
 
+
+    //保存物品分类
     public function saveType()
     {
         $data = Goods::create($_POST);
         return redirect('goods/index');
     }
 
-
+    /*
+    物品操作
+    */
+    //添加物品
     public function addItem($pid)
     {
         return view('Goods/addItem')->with("GoodsTypeId", $pid);
     }
 
+    //保存物品
     public function saveItem()
     {
         $data = GoodsItem::create($_POST);
         return redirect('goods/index');
     }
 
-    
+    /**
+     * 获取对应父节点下的物品列表
+     * @param integer $typeId [父节点id]
+     */
+    public function GetGoodsList($typeId = 0)
+    {
+        $list = GoodsItem::where('GoodsTypeId', $typeId)->get();
+        return json_encode($list);
+    }
+
+
+
+
+    /**
+     * [showTree description]
+     * @return [type] [description]
+     */
     public function showTree()
     {
         return;
     }
 
+    /**
+     * 创建子节点
+     * @param  [list] $list [所有节点的列表]
+     * @param  [int] $id   [数组的父节点id]
+     * @return [list]       [带子节点的list]
+     */
     private function createNext($list, $id)
     {
         $items = array();

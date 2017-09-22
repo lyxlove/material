@@ -5,21 +5,26 @@ namespace App\Http\Controllers;
 use App\Home;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+
+//\View::addExtension('html', 'php');
+
 class HomeController extends Controller
 {
     /**
      *
      */
-    public  function  index()
+    public function index()
     {
-        $data = Home::get();
-        dump($data);
-        //return view('home/index');
+        return view('home/index');
     }
 
+    /**
+     *金价换算
+     */
     public function gold()
     {
-        $gold = $_POST['gold'];
+        // $gold = $_POST['gold'];
+        $gold = 100;
         $price1 = $gold / 100;
         $price15 = $price1 * 15;
         $price30 = $price1 * 30 ;
@@ -35,6 +40,6 @@ class HomeController extends Controller
         $data['price50'] = $price50;
         $data['minuteprice'] = $minuteprice;
         $data['hourprice'] = $hourprice;
-        return view('home/goldtranslation')->with('data',$data);
+        return view('home/goldtranslation')->with('data', $data);
     }
 }
