@@ -44,7 +44,7 @@ class GoodsController extends Controller
      */
     public function addType($pid)
     {
-        return view('Goods/addType')->with("GPId", $pid);
+        return view('Goods/addType')->with("parent_id", $pid);
     }
 
 
@@ -61,7 +61,7 @@ class GoodsController extends Controller
     //添加物品
     public function addItem($pid)
     {
-        return view('Goods/addItem')->with("GoodsTypeId", $pid);
+        return view('Goods/addItem')->with("type_id", $pid);
     }
 
     //保存物品
@@ -77,7 +77,7 @@ class GoodsController extends Controller
      */
     public function GetGoodsList($typeId = 0)
     {
-        $list = GoodsItem::where('GoodsTypeId', $typeId)->get();
+        $list = GoodsItem::where('type_id', $typeId)->get();
         return json_encode($list);
     }
 
@@ -103,12 +103,12 @@ class GoodsController extends Controller
     {
         $items = array();
         foreach ($list as $k=>$s) {
-            if ($s['GPId'] == $id) {
-                $item['id'] = $s['GoodsTypeId'];
-                $item['text'] = $s['GoodsType'];
+            if ($s['parent_id'] == $id) {
+                $item['id'] = $s['type_id'];
+                $item['text'] = $s['type'];
                 $data['width'] = 0;
                 $data['childwidth'] = 0;
-                $child = $this->createNext($list, $s['GoodsTypeId']);
+                $child = $this->createNext($list, $s['type_id']);
                 if (count($child)>0) {
                     $item['children'] = $child;
                 } else {

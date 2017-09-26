@@ -6,7 +6,7 @@
 
     <link rel="stylesheet" type="text/css" href="{{URL::asset('/easyui/themes/default/easyui.css')}}">
     <link rel="stylesheet" type="text/css" href="{{URL::asset('/easyui/themes/icon.css')}}">
-
+    <link rel="stylesheet" href="{{url('/css/main.css')}}">
 
     <style type="text/css">
       .main
@@ -50,7 +50,7 @@ function GetItemList(id)
     typr:'get',
     success:function(msg) {
       eval("var list ="+msg);
-    var arr = new Array('GoodsName');
+    var arr = new Array('goods_name');
 
      mRefreshTree('tid','bid',arr,msg);
 
@@ -105,7 +105,8 @@ function AddType() {
   {
     pid = 0;
   }
- layer.open({
+    window.location.href = "{{url('goods/addtype')}}"+'/'+pid;
+ /*layer.open({
     type: 2,
     title: '添加物品',
     maxmin: true,
@@ -114,7 +115,7 @@ function AddType() {
     end: function(){
       layer.tips('Hi', '#about', {tips: 1})
     }
-  });
+  });*/
 }
 
 //添加物品
@@ -124,7 +125,8 @@ function AddMaterial() {
   {
     pid = 0;
   }
- layer.open({
+  window.location.href = "{{url('goods/addItem')}}"+'/'+pid;
+ /*layer.open({
     type: 2,
     title: '添加物品',
     maxmin: true,
@@ -133,7 +135,7 @@ function AddMaterial() {
     end: function(){
       layer.tips('Hi', '#about', {tips: 1})
     }
-  });
+  });*/
 }
 
 
@@ -141,6 +143,23 @@ function AddMaterial() {
 
 </head>
 <body>
+  <div class="head-center">
+      <ul class="bar-menu">
+        <li><a href="{{url('')}}">首页</a></li>
+        <li class="bar-item"><a href="#">定义</a>
+        <ul class="item-content">
+          <li><a href="{{url('goods/index')}}">物品类型</a></li>
+        </ul>
+        </li>
+      </ul>
+  </div>
+
+  <br/>
+  <br/>
+  <br/>
+
+  <div class="body-center">
+
 
   <input id="typeid" type="hidden" name="typeid">
   <button id="btnType" type="button" onclick="AddType()" name="">添加分类</button>
@@ -164,6 +183,6 @@ function AddMaterial() {
     </table>
   </div>
   </div>
-
+  </div>
 </body>
 </html>
