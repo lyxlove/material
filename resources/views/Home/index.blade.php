@@ -11,6 +11,7 @@
         <li class="bar-item"><a href="#">定义</a>
         <ul class="item-content">
           <li><a href="{{url('goods/index')}}">物品类型</a></li>
+          <li><a href="{{url('price/index')}}">价格</a></li>
         </ul>
         </li>
       </ul>

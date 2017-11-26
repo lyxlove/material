@@ -82,8 +82,6 @@ class GoodsController extends Controller
     }
 
 
-
-
     /**
      * [showTree description]
      * @return [type] [description]

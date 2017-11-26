@@ -7,7 +7,6 @@
     <link rel="stylesheet" type="text/css" href="{{URL::asset('/easyui/themes/default/easyui.css')}}">
     <link rel="stylesheet" type="text/css" href="{{URL::asset('/easyui/themes/icon.css')}}">
     <link rel="stylesheet" href="{{url('/css/main.css')}}">
-
     <style type="text/css">
       .main
       {
@@ -22,6 +21,7 @@
         flex:5;
       }
     </style>
+
 
     <script>
   //初始化刷新控件
@@ -87,55 +87,18 @@ function mRefreshTree(tableId,bodyId,bodyArr,data)
       {
         var td = document.createElement("td");
         td.innerHTML = list[i][bodyArr[j]];
-
         tr.appendChild(td);
       }
+      var td = document.createElement("td");
+      var id = list[i]['goods_id'];
+        td.innerHTML = "<a href={{url('price/edit')}}/"+id+">修改价格</a>"
+      tr.appendChild(td);
       infos.appendChild(tr);
     }
 
   }
 
   dtable.appendChild(infos);
-}
-
-//添加物品类型
-function AddType() {
-  var pid = $('#typeid').val();
-  if(pid == '')
-  {
-    pid = 0;
-  }
-    window.location.href = "{{url('goods/addtype')}}"+'/'+pid;
- /*layer.open({
-    type: 2,
-    title: '添加物品',
-    maxmin: true,
-    area: ['800px', '500px'],
-    content:"{{url('goods/addtype')}}"+'/'+pid,
-    end: function(){
-      layer.tips('Hi', '#about', {tips: 1})
-    }
-  });*/
-}
-
-//添加物品
-function AddMaterial() {
-  var pid = $('#typeid').val();
-  if(pid == '')
-  {
-    pid = 0;
-  }
-  window.location.href = "{{url('goods/addItem')}}"+'/'+pid;
- /*layer.open({
-    type: 2,
-    title: '添加物品',
-    maxmin: true,
-    area: ['800px', '500px'],
-    content:"{{url('goods/addItem')}}"+'/'+pid,
-    end: function(){
-      layer.tips('Hi', '#about', {tips: 1})
-    }
-  });*/
 }
 
 
@@ -161,12 +124,7 @@ function AddMaterial() {
 
   <div class="body-center">
 
-
-  <input id="typeid" type="hidden" name="typeid">
-  <button id="btnType" type="button" onclick="AddType()" name="">添加分类</button>
-  <button id="btnMaterial" type="button" onclick="AddMaterial()" name="">添加材料</button>
-
-  <div style="margin:20px 0;"></div>
+<div style="margin:20px 0;"></div>
 
 <div class="main">
   <div class="left" style="padding:5px">
@@ -176,6 +134,7 @@ function AddMaterial() {
     <table id="tid">
     <thead>
       <th>物品名称</th>
+      <th>来源</th>
       <th>来源</th>
     </thead>
     <tbody id="bid">

@@ -32,3 +32,8 @@ Route::get('goods/addItem/{pid}', 'GoodsController@addItem');
 
 
 Route::get('goods/GetGoodsList/{typeId}', 'GoodsController@GetGoodsList');
+
+
+//价格
+Route::get('price/index', 'GoodsPriceController@index');
+Route::get('price/edit/{id}', 'GoodsPriceController@edit');

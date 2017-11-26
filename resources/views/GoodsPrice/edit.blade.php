@@ -22,7 +22,7 @@
         <li class="bar-item"><a href="#">定义</a>
         <ul class="item-content">
           <li><a href="{{url('goods/index')}}">物品类型</a></li>
-          <li><a href="{{url('price/index')}}">价格</a></li>
+            <li><a href="{{url('price/index')}}">价格</a></li>
         </ul>
         </li>
       </ul>
@@ -33,17 +33,13 @@
   <br/>
 
   <div class="body-center">
-    <form class="" action="{{url('goods/saveItem')}}" method="post">
-        {!! csrf_field() !!}
+    <form class="" action="index.html" method="post">
 
-        <input type="hidden" name="type_id" value="{{$type_id}}">
-
-      <!--  分类名称<input type="text" name="GoodsType" value="{{isset($GoodsType) ? $GoodsType : 'Default'}}">
--->
-        物品名称<input type="text" name="goods_name" value="{{ $goods_name or ''}}">
-
-        <input type="submit" name="" value="保存">
+      <input type="hidden" name="goods_id" value="{{$data['id']}}">
+      <input type="text" name="price" value="{{$data['id']}}">
+      <input type="submit" name="" value="提交">
     </form>
+
   </div>
 </body>
 </html>

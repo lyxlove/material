@@ -1,0 +1,30 @@
+*{
+  padding: 0px;
+  margin: 0px;
+}
+ul
+{
+    list-style-type: none;
+}
+a{
+  color: #000;
+  font-size: 14px
+}
+li
+{
+  float: left;
+  margin-left: 10px;
+}
+
+
+.headdiv
+{
+  width: 320px;
+  height: 30px;
+  border: solid 1px red;
+  position: absolute;
+  right: 0px;
+/*  margin-top: -15px;
+  left: 50%;
+  margin-left: -160;*/
+}
